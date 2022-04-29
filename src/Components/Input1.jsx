@@ -20,7 +20,7 @@ const Input1 = () => {
 
   // console.log(alphabet);
   // const aaa = inputtest.split("");
-  console.log();
+  // console.log();
 
   return (
     <div>
