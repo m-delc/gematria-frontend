@@ -18,9 +18,6 @@ const Input1 = () => {
     fetchAlphabet().catch(console.error);
   }, []);
 
-  // console.log(alphabet);
-  // const aaa = inputtest.split("");
-
   const englishOrdinal = inputtest
     ? alphabet
         .filter((x) => x.letter === inputtest)
@@ -45,7 +42,7 @@ const Input1 = () => {
         )
     : null;
 
-  // console.log(englishOrdinal);
+  const inputSplit = inputtest.split("");
 
   return (
     <div>
@@ -55,13 +52,17 @@ const Input1 = () => {
         onChange={(e) => setinputtest(e.target.value)}
       ></input>
       <br></br>
-      {/* {inputtest
-        ? alphabet
-            .filter((x) => x.letter === inputtest)
-            .map((filteredLetter) => (
-              <li key={v4()}>{filteredLetter.values.english_ordinal}</li>
-            ))
-        : null} */}
+      <br></br>
+      <div>
+        <table>
+          <tbody>
+            <tr>
+              {inputSplit ? inputSplit.map((x) => <td key={v4}>{x}</td>) : null}
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <br></br>
       English Ordinal: {englishOrdinal}
       <br></br>
       Full Reduction: {fullReduction}
