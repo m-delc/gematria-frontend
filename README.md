@@ -1,2 +1,1 @@
-# gematria-vite
 # gematria-frontend
