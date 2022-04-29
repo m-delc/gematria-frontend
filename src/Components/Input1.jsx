@@ -43,6 +43,7 @@ const Input1 = () => {
     : null;
 
   const inputSplit = inputtest.split("");
+  console.log(inputSplit);
 
   return (
     <div>
@@ -59,6 +60,17 @@ const Input1 = () => {
             <tr>
               {inputSplit ? inputSplit.map((x) => <td key={v4}>{x}</td>) : null}
             </tr>
+            {/* this is producing two table entries, but the bottom one is empty */}
+            {inputSplit
+              ? inputSplit.map((x) => <td key={v4}>{x.values}</td>)
+              : null}
+
+            {/* this has the same problem, where it kinda works for one letter but not for more than one */}
+            {/* {inputSplit
+              ? inputSplit
+                  .filter((x) => x === inputtest)
+                  .map((filteredLetter) => <td key={v4}>{filteredLetter}</td>)
+              : null} */}
           </tbody>
         </table>
       </div>
