@@ -3,6 +3,9 @@ import "../App.css";
 import { useAtom } from "jotai";
 import { alphabetAtom } from "../State.jsx";
 import { v4 } from "uuid";
+// import { fetchAlphabet } from "../Business/Fetch";
+
+// import { pop } from "../Business/Test";
 
 const Input1 = () => {
   const [alphabet, setAlphabet] = useAtom(alphabetAtom);
@@ -13,6 +16,8 @@ const Input1 = () => {
     const json = await data.json();
     setAlphabet(json);
   };
+
+  // console.log(pop);
 
   useEffect(() => {
     fetchAlphabet().catch(console.error);
