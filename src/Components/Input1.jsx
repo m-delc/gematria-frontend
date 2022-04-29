@@ -20,7 +20,14 @@ const Input1 = () => {
 
   // console.log(alphabet);
   // const aaa = inputtest.split("");
-  // console.log();
+
+  const filtertest = inputtest
+    ? alphabet
+        .filter((x) => x.letter === inputtest)
+        .map((filteredLetter) => filteredLetter.values[0].english_ordinal)
+    : null;
+
+  console.log(filtertest);
 
   return (
     <div>
@@ -30,13 +37,14 @@ const Input1 = () => {
         onChange={(e) => setinputtest(e.target.value)}
       ></input>
       <br></br>
-      {inputtest
+      {/* {inputtest
         ? alphabet
             .filter((x) => x.letter === inputtest)
             .map((filteredLetter) => (
               <li key={v4()}>{filteredLetter.values.english_ordinal}</li>
             ))
-        : null}
+        : null} */}
+      {filtertest}
     </div>
   );
 };
