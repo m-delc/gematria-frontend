@@ -23,32 +23,34 @@ const Input1 = () => {
     fetchAlphabet().catch(console.error);
   }, []);
 
+  const inputSplit = inputtest.split("");
+
+
   const englishOrdinal = inputtest
     ? alphabet
         .filter((x) => x.letter === inputtest)
         .map((filteredLetter) => filteredLetter.values[0].english_ordinal)
     : null;
 
-  const fullReduction = inputtest
-    ? alphabet
-        .filter((x) => x.letter === inputtest)
-        .map((filteredLetter) => filteredLetter.values[0].full_reduction)
-    : null;
-  const reverseOrdinal = inputtest
-    ? alphabet
-        .filter((x) => x.letter === inputtest)
-        .map((filteredLetter) => filteredLetter.values[0].reverse_ordinal)
-    : null;
-  const reverseFullReduction = inputtest
-    ? alphabet
-        .filter((x) => x.letter === inputtest)
-        .map(
-          (filteredLetter) => filteredLetter.values[0].reverse_full_reduction
-        )
-    : null;
+  // const fullReduction = inputtest
+  //   ? alphabet
+  //       .filter((x) => x.letter === inputtest)
+  //       .map((filteredLetter) => filteredLetter.values[0].full_reduction)
+  //   : null;
+  // const reverseOrdinal = inputtest
+  //   ? alphabet
+  //       .filter((x) => x.letter === inputtest)
+  //       .map((filteredLetter) => filteredLetter.values[0].reverse_ordinal)
+  //   : null;
+  // const reverseFullReduction = inputtest
+  //   ? alphabet
+  //       .filter((x) => x.letter === inputtest)
+  //       .map(
+  //         (filteredLetter) => filteredLetter.values[0].reverse_full_reduction
+  //       )
+  //   : null;
 
-  const inputSplit = inputtest.split("");
-  console.log(inputSplit);
+  console.log(alphabet);
 
   return (
     <div>
@@ -66,27 +68,27 @@ const Input1 = () => {
               {inputSplit ? inputSplit.map((x) => <td key={v4}>{x}</td>) : null}
             </tr>
             {/* this is producing two table entries, but the bottom one is empty */}
-            {inputSplit
-              ? inputSplit.map((x) => <td key={v4}>{x.values}</td>)
-              : null}
+            {/* {inputSplit
+              ? inputSplit.map((x) => <td key={v4}>{x}</td>)
+              : null} */}
 
             {/* this has the same problem, where it kinda works for one letter but not for more than one */}
-            {/* {inputSplit
+            {inputSplit
               ? inputSplit
-                  .filter((x) => x === inputtest)
+                  .filter((x) => x === alphabet.letter)
                   .map((filteredLetter) => <td key={v4}>{filteredLetter}</td>)
-              : null} */}
+              : null}
           </tbody>
         </table>
       </div>
       <br></br>
       English Ordinal: {englishOrdinal}
       <br></br>
-      Full Reduction: {fullReduction}
+      {/* Full Reduction: {fullReduction}
       <br></br>
       Reverse Ordinal: {reverseOrdinal}
       <br></br>
-      Reverse Full Ordinal: {reverseFullReduction}
+      Reverse Full Ordinal: {reverseFullReduction} */}
     </div>
   );
 };
