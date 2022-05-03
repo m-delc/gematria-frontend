@@ -12,7 +12,7 @@ const Input1 = () => {
   const [inputtest, setinputtest] = useState("");
 
   const fetchAlphabet = async () => {
-    const data = await fetch("http://localhost:3000/alphabets");
+    const data = await fetch("/alphabets");
     const json = await data.json();
     setAlphabet(json);
   };
